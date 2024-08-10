@@ -1,0 +1,4 @@
+Error: El mensaje de bienvenida no se encontró.
+assert "'You logged into a secure area!" in 'You logged into a secure area!\n×'
+ +  where 'You logged into a secure area!\n×' = <selenium.webdriver.remote.webelement.WebElement (session="010a63a0aa471f9f934126bb9c6657bc", element="f.1BEE700FB861679C72A05E9AC51EFCC2.d.55E5C7733EA052F62D061E23958E15AF.e.26")>.text
+Fin de los Tests

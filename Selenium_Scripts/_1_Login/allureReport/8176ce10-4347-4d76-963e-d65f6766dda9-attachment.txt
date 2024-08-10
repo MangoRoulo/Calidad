@@ -1,0 +1,3 @@
+Error: El rol no corresponden al usuario
+assert 'Administrador' in 'ADMINISTRADOR'
+Fin de los Tests

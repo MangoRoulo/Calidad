@@ -1,0 +1,71 @@
+Comandos
+
+pip install selenium
+
+Web Driver
+https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.72/win64/chromedriver-win64.zip
+
+GekoDriver
+https://github.com/mozilla/geckodriver/releases
+
+Localizadores
+
+elemento_por_id = driver.find_element(By.ID, 'elementoID')
+elemento_por_nombre = driver.find_element(By.NAME, 'elementoNombre')
+elemento_por_clase = driver.find_element(By.CLASS_NAME, 'elementoClase')
+elemento_por_etiqueta = driver.find_element(By.TAG_NAME, 'div')
+elemento_por_css = driver.find_element(By.CSS_SELECTOR, '.elementoClase')
+elemento_por_xpath = driver.find_element(By.XPATH, '//div[@id="elementoID"]')
+elemento_por_texto_enlace = driver.find_element(By.LINK_TEXT, 'Texto del Enlace')
+elemento_por_texto_parcial_enlace = driver.find_element(By.PARTIAL_LINK_TEXT, 'Texto Parcial')
+
+# Realizar acciones en los elementos
+elemento_por_id.click()
+elemento_por_nombre.send_keys('Texto de ejemplo')
+
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# Inicializar el WebDriver (asegúrate de tener el controlador adecuado descargado y configurado)
+driver = webdriver.Chrome(executable_path='ruta/al/chromedriver')
+
+# Abrir una página web
+driver.get('https://ejemplo.com')
+
+# Localizar elementos usando diferentes identificadores
+
+# 1. Localizar por ID
+elemento_por_id = driver.find_element(By.ID, 'elementoID')
+elemento_por_id.click()  # Ejemplo de acción
+
+# 2. Localizar por Nombre
+elemento_por_nombre = driver.find_element(By.NAME, 'elementoNombre')
+elemento_por_nombre.send_keys('Texto de ejemplo')  # Ejemplo de acción
+
+# 3. Localizar por Clase
+elemento_por_clase = driver.find_element(By.CLASS_NAME, 'elementoClase')
+elemento_por_clase.click()  # Ejemplo de acción
+
+# 4. Localizar por Etiqueta
+elemento_por_etiqueta = driver.find_element(By.TAG_NAME, 'div')
+print(elemento_por_etiqueta.text)  # Ejemplo de acción
+
+# 5. Localizar por Selector CSS
+elemento_por_css = driver.find_element(By.CSS_SELECTOR, '.elementoClase')
+elemento_por_css.click()  # Ejemplo de acción
+
+# 6. Localizar por XPath
+elemento_por_xpath = driver.find_element(By.XPATH, '//div[@id="elementoID"]')
+elemento_por_xpath.click()  # Ejemplo de acción
+
+# 7. Localizar por Texto de Enlace
+elemento_por_texto_enlace = driver.find_element(By.LINK_TEXT, 'Texto del Enlace')
+elemento_por_texto_enlace.click()  # Ejemplo de acción
+
+# 8. Localizar por Texto Parcial de Enlace
+elemento_por_texto_parcial_enlace = driver.find_element(By.PARTIAL_LINK_TEXT, 'Texto Parcial')
+elemento_por_texto_parcial_enlace.click()  # Ejemplo de acción
+
+# Cerrar el navegador
+driver.quit()
