@@ -90,7 +90,7 @@ def test_login_propio(setup_browser):
         #Click en cierra de sesión
         driver.find_element(By.CSS_SELECTOR, "button[role='link']")
         time.sleep(3)
-
+        #Fin Cierre de Sesión
 
     except Exception as e:
         # Tomar la captura de pantalla si ocurre un error
