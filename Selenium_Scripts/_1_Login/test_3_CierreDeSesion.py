@@ -7,6 +7,7 @@ from selenium.webdriver.common.keys import Keys
 import allure
 from allure_commons.types import AttachmentType
 import time
+from Funciones.FuncionesPropias import FuncionesPropias
 
 # URL de prueba
 url = "https://app.colegium.cloud/"
@@ -52,51 +53,11 @@ def test_login_propio(setup_browser):
     
     try:
 
-        #Confirnmación de pagina colegium
-        assert "Colegium" in driver.title, "Título incorrecto de la página"
-        time.sleep(3)
-
-        # Ingresar usuario y contraseña
-        Email = driver.find_element(By.XPATH, "/html[1]/body[1]/section[1]/div[2]/div[1]/div[1]/form[1]/div[1]/input[1]")
-        Email.send_keys("pormero@colegium.com")
-        time.sleep(1)
-        Password = driver.find_element(By.XPATH, "/html[1]/body[1]/section[1]/div[2]/div[1]/div[1]/form[1]/div[2]/input[1]")
-        Password.send_keys("Pop23725")
-        time.sleep(1)
-        Password.send_keys(Keys.RETURN)
-        time.sleep(1)
-        driver.find_element(By.XPATH, "//button[@type='submit']")
-        time.sleep(1)
-
-        # Verificar que se haya iniciado sesión correctamente
-        #Comprobando el nombre del colegio
-        Colegio = driver.find_element(By.XPATH, "/html/body/nav/div/div[1]/div/p")
-        Colegio_text = Colegio.text
-        assert "Colegio Aleman De La UniÓn" in Colegio_text, "Colegio Erroneo"
-        #comprobnaod el nombre de usuario
-        Usuario = driver.find_element(By.CSS_SELECTOR, "p[class='mb-0 title']")
-        Usuario_text = Usuario.text
-        assert "Pablo Daniel Ormero" in Usuario_text, "Nombre de usuario incorrecto"
-        #Comprobando rol
-        Rol  = driver.find_element(By.CSS_SELECTOR, "span[class='mb-0 sub-title']")
-        Rol_text = Rol.text
-        assert "ADMINISTRADOR" in Rol_text, "El rol no corresponden al usuario"
-        print("Test de inicio de sesión exitoso completado correctamente.")
-
-        #Inicio Cierre de Sesión
-        #Click sobre el meun de usuario
-        driver.find_element(By.CSS_SELECTOR, ".clg.clg-select-abajo")
-        time.sleep(1)
-        #Click en cierra de sesión
-        driver.find_element(By.CSS_SELECTOR, "button[role='link']")
-        time.sleep(3)
-        #Fin Cierre de Sesión
+        FuncionesPropias.inicioSesion(driver)
+        FuncionesPropias.cerrarSesion(driver)
 
     except Exception as e:
         # Tomar la captura de pantalla si ocurre un error
         allure.attach(driver.get_screenshot_as_png(), name="screenshot_error", attachment_type=AttachmentType.PNG)
         print(f"Error: {e}")
         raise  # Re-lanzar la excepción para que pytest la maneje
-
-
-

@@ -7,6 +7,7 @@ from selenium.webdriver.common.keys import Keys
 import allure
 from allure_commons.types import AttachmentType
 import time
+from _1_Login._2_Login_propio import login_propio
 
 # URL de prueba
 url = "https://app.colegium.cloud/"
@@ -52,26 +53,7 @@ def test_login_propio(setup_browser):
     
     try:
 
-        #Confirnmación de pagina colegium
-        assert "Colegium" in driver.title, "Título incorrecto de la página"
-        time.sleep(3)
-
-        # Ingresar usuario y contraseña
-        driver.find_element(By.XPATH, "/html[1]/body[1]/section[1]/div[2]/div[1]/div[1]/form[1]/div[1]/input[1]").send_keys("pormero@colegium.com")
-        time.sleep(1)
-        driver.find_element(By.XPATH, "/html[1]/body[1]/section[1]/div[2]/div[1]/div[1]/form[1]/div[2]/input[1]").send_keys("Pop23725")
-        time.sleep(1)
-        driver.find_element(By.XPATH, "//button[@type='submit']").click()
-        time.sleep(1)
-
-        # Verificar que se haya iniciado sesión correctamente
-        assert "Colegio Aleman De La UniÓn" in driver.find_element(By.XPATH, "//div[@class='contenedor']//p[@class='ml-1 mb-0 title']").text, "Colegio Erroneo"
-
-        # Vaerificar nombre de usuario
-        assert "Pablo Daniel Ormero" in driver.find_element(By.CSS_SELECTOR, "p[class='mb-0 title").text, "Nombre de usuario incorrecto"
-
-        # Verificar el rol del usuario
-        assert "ADMINISTRADOR" in driver.find_element(By.CSS_SELECTOR, "span[class='mb-0 sub-title']").text, "El rol no corresponden al usuario"
+        login_propio.test_login_propio(driver)
         
     except Exception as e:
         # Tomar la captura de pantalla si ocurre un error

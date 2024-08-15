@@ -1,0 +1,3 @@
+■■■■■-Inicio inicio sesion-■■■■■
+Error: 'WebDriver' object has no attribute 'driver'
+Fin de los Tests
