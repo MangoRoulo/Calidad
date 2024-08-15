@@ -97,3 +97,6 @@ def test_login_propio(setup_browser):
         allure.attach(driver.get_screenshot_as_png(), name="screenshot_error", attachment_type=AttachmentType.PNG)
         print(f"Error: {e}")
         raise  # Re-lanzar la excepción para que pytest la maneje
+
+
+#Vamos a probar si se actualiza de esta forma
