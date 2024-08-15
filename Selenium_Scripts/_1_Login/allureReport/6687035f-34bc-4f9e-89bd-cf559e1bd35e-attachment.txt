@@ -1,3 +1,0 @@
-Error: Nombre de usuario incorrecto
-assert 'Pablo Daniel Omero' in 'Pablo Daniel Ormero'
-Fin de los Tests

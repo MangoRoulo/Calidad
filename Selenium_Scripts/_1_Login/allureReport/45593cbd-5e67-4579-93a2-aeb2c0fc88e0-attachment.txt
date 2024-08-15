@@ -1,4 +1,0 @@
-Error: El mensaje de error no se encontró.
-assert 'Yoùr username is invalido!' in 'Your username is invalid!\n×'
- +  where 'Your username is invalid!\n×' = <selenium.webdriver.remote.webelement.WebElement (session="444d1bdba9e010e419c06f4e37b8d9c2", element="f.521F6159E9B1445A5486ADEFAE1BE312.d.D039E31856DA8C239213F39916565430.e.31")>.text
-Fin de los Tests

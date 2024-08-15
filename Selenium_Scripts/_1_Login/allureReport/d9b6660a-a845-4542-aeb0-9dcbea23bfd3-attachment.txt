@@ -1,2 +1,0 @@
-Error: FuncionesPropias.inicioSesion() missing 1 required positional argument: 'self'
-Fin de los Tests

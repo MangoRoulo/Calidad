@@ -29,7 +29,7 @@ produccion = "https://app.colegium.cloud/"
 usuario = "pormero@colegium.com"
 clave = "Pop23725"
 
-class FuncionesPropias():
+class global_FuncionesPropias():
     def __init__(self, driver):
         self.driver = driver
 
@@ -37,8 +37,8 @@ class FuncionesPropias():
 
     # *************************************************Funciones Recurrentes*************************************************
     def inicioSesion(self, usuario=usuario, clave=clave):
-        print("■■■■■-Inicio inicio sesion-■■■■■")
-        self.driver.implicitly_wait(20)
+        print("■■■■■-Inicializando Inicio de Sesion-■■■■■")
+        time.sleep(2)
 
         # Campos
         Email = "//input[@placeholder='ejemplo@colegium.com']"
@@ -51,7 +51,7 @@ class FuncionesPropias():
 
         self.driver.find_element(By.XPATH, Email).send_keys(str(usuario))
         time.sleep(1)   
-        self.driver.find_element(By.NAME, Contraseña).send_keys(clave)
+        self.driver.find_element(By.XPATH, Contraseña).send_keys(clave)
         time.sleep(1)
         self.driver.find_element(By.XPATH, BotonLogin).click()
         time.sleep(1)
@@ -60,18 +60,18 @@ class FuncionesPropias():
         assert "Colegio Aleman De La UniÓn" in self.driver.find_element(By.XPATH, NombreColegio).text, "Colegio Erroneo"
 
         # Vaerificar nombre de usuario
-        assert "Pablo Daniel Ormero" in self.driver.find_element(By.CSS_SELECTOR, NombreUsuario).text, "Nombre de usuario incorrecto"
+        assert "Pablo Daniel Ormero" in self.driver.find_element(By.XPATH, NombreUsuario).text, "Nombre de usuario incorrecto"
 
         # Verificar el rol del usuario
-        assert "ADMINISTRADOR" in self.driver.find_element(By.CSS_SELECTOR, NombreRolAdmin).text, "El rol no corresponden al usuario"
+        assert "ADMINISTRADOR" in self.driver.find_element(By.XPATH, NombreRolAdmin).text, "El rol no corresponden al usuario"
 
         
-        print("■■■■■-Fin inicio sesion-■■■■■")
+        print("■■■■■-Fin Inicio de Sesion-■■■■■")
         time.sleep(2)
 
     def cerrarSesion(self):
 
-        print("■■■■■-Inicio cerrar sesion-■■■■■")
+        print("■■■■■-Inicio Cierre de Sesion-■■■■■")
         time.sleep(2)
 
         # Campos
@@ -86,5 +86,5 @@ class FuncionesPropias():
         self.driver.find_element(By.XPATH, CerrarSesion).click()
         time.sleep(3)
         # Fin Cierre de Sesión
-        print("■■■■■-Fin cerrar sesion-■■■■■")
+        print("■■■■■-Fin Cierre de Sesion-■■■■■")
         time.sleep(2)

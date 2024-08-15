@@ -1,4 +1,0 @@
-Error: Título incorrecto de la página
-assert 'Iniciar sesión' in 'Colegium'
- +  where 'Colegium' = <selenium.webdriver.chrome.webdriver.WebDriver (session="24cca9627e5e6d7d4fafaa2575a4b5a6")>.title
-Fin de los Tests

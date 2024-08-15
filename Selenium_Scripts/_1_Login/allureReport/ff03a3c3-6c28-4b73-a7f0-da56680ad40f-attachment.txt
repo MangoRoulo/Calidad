@@ -1,2 +1,0 @@
-Test de inicio de sesión exitoso completado correctamente.
-Fin de los Tests

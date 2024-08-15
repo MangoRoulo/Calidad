@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 import allure
 from allure_commons.types import AttachmentType
 import time
-from Funciones.FuncionesPropias import FuncionesPropias
+from Funciones.FuncionesPropias import global_FuncionesPropias
 
 # URL de prueba
 url = "https://app.colegium.cloud/"
@@ -53,8 +53,10 @@ def test_login_propio(setup_browser):
     
     try:
 
-        FuncionesPropias.inicioSesion(driver)
-        FuncionesPropias.cerrarSesion(driver)
+        funcion = global_FuncionesPropias(driver)
+
+        funcion.inicioSesion()
+        funcion.cerrarSesion()
 
     except Exception as e:
         # Tomar la captura de pantalla si ocurre un error

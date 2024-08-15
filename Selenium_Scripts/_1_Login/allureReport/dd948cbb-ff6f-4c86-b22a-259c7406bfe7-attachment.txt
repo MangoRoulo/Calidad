@@ -1,2 +1,0 @@
-Error: 'str' object has no attribute 'send_keys'
-Fin de los Tests
