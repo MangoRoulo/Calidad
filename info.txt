@@ -69,3 +69,29 @@ elemento_por_texto_parcial_enlace.click()  # Ejemplo de acción
 
 # Cerrar el navegador
 driver.quit()
+
+# Comandos de github
+# Inicializando el repositorio
+    git init
+
+# Comprobamos que la rama o branch exista, se pueden crear nuevas o usar la main
+    git checkout -b main
+
+# añadimos remotamente el repositorio de github
+    git remotamente add (Nombre que le queremos dar a la rama puede ser origin) (URL del repositorio)
+    git remote add origin https://github.com/MangoRoulo/Calidad.git
+
+# Comprobamos que tenemos acceso al repositorio
+    git remote show origin
+
+#Debe de salir la siguiente estructura
+    * remote origin
+    Fetch URL: https://github.com/MangoRoulo/Calidad.git
+    Push  URL: https://github.com/MangoRoulo/Calidad.git
+    HEAD branch: main
+    Remote branch:
+    main new (next fetch will store in remotes/origin)
+
+# Hacemos un pull a main o master dependiendo de la rama que se haya creado
+    git pull (Bombre de la rama remota) (nombre de la rama en github)
+    git pull origin main
