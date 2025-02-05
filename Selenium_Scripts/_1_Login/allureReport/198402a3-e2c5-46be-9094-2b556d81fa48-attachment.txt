@@ -1,0 +1,5 @@
+■■■■■-Inicializando Inicio de Sesion-■■■■■
+■■■■■-Fin Inicio de Sesion-■■■■■
+■■■■■-Inicio Cierre de Sesion-■■■■■
+■■■■■-Fin Cierre de Sesion-■■■■■
+Fin de los Tests

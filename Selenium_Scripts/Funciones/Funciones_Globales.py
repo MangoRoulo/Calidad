@@ -61,3 +61,11 @@ class global_functions():
         self.driver.find_element(By.XPATH, "//button[contains(.,'Cerrar Sesión')]").click()
         print("■■■■■-Fin cerrar sesion-■■■■■")
         time.sleep(2)
+        
+    def elegirordenGenerarNumeroMatricula(self):
+        print("■■■■■-Inicio elegir orden generar Número Matricula-■■■■■")
+        time.sleep(2)
+    
+    def elegirordenVisualizacion(self):
+        print("■■■■■-Inicio elegir orden Visualización-■■■■■")
+        time.sleep(2)

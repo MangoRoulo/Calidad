@@ -20,8 +20,10 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import NoSuchElementException
-# from datetime import datetime
 
+# Espera implicita
+driver = webdriver.Chrome()
+driver.implicitly_wait(10)
 
 # Url
 produccion = "https://app.colegium.cloud/"
@@ -41,6 +43,9 @@ class global_FuncionesPropias():
         time.sleep(2)
 
         # Campos
+        Usuario = "Pablo"
+        Colegio = "Colegio Aleman De La UniÓn"
+        Rol = "ADMINISTRADOR"
         Email = "//input[@placeholder='ejemplo@colegium.com']"
         Contraseña = "//input[@placeholder='······']"
         BotonLogin = "//button[normalize-space()='Iniciar sesión']"
@@ -57,13 +62,13 @@ class global_FuncionesPropias():
         time.sleep(1)
        
         # Verificar que se haya iniciado sesión correctamente
-        assert "Colegio Aleman De La UniÓn" in self.driver.find_element(By.XPATH, NombreColegio).text, "Colegio Erroneo"
+        assert Colegio in self.driver.find_element(By.XPATH, NombreColegio).text, "Colegio Erroneo"
 
         # Vaerificar nombre de usuario
-        assert "Pablo Daniel Ormero" in self.driver.find_element(By.XPATH, NombreUsuario).text, "Nombre de usuario incorrecto"
+        assert Usuario in self.driver.find_element(By.XPATH, NombreUsuario).text, "Nombre de usuario incorrecto"
 
         # Verificar el rol del usuario
-        assert "ADMINISTRADOR" in self.driver.find_element(By.XPATH, NombreRolAdmin).text, "El rol no corresponden al usuario"
+        assert Rol in self.driver.find_element(By.XPATH, NombreRolAdmin).text, "El rol no corresponden al usuario"
 
         
         print("■■■■■-Fin Inicio de Sesion-■■■■■")
@@ -80,11 +85,9 @@ class global_FuncionesPropias():
 
         # Inicio Cierre de Sesión
         # Click sobre el menu de usuario
-        self.driver.find_element(By.XPATH, SimboloMenu).click()
-        time.sleep(1)
+        self.driver.find_element(By.XPATH, SimboloMenu).click().implicitly_wait(10)      
         # Click en cierra de sesións
-        self.driver.find_element(By.XPATH, CerrarSesion).click()
-        time.sleep(3)
+        self.driver.find_element(By.XPATH, CerrarSesion).click().implicitly_wait(10)
         # Fin Cierre de Sesión
         print("■■■■■-Fin Cierre de Sesion-■■■■■")
         time.sleep(2)
